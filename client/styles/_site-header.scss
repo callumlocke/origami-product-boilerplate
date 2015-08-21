@@ -1,0 +1,18 @@
+.site-header {
+  text-align: center;
+  padding: 18px 0 14px;
+  border-bottom: 1px solid ftColor('pink-tint2');
+
+  > a {
+    opacity: 0.7;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    > svg {
+      height: 20px;
+      width: 200px;
+    }
+  }
+}

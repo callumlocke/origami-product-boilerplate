@@ -1,0 +1,53 @@
+.closing {
+  padding: 0 10px;
+}
+
+  .sources-and-credits {
+    font: 400 16px/18px ftFont('MetricWeb');
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #74736c;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 44px;
+      border-top: 1px solid ftColor('grey-tint1');
+    }
+  }
+    .sources {
+      margin: 15px 0 0;
+      letter-spacing: 0.2px;
+    }
+
+    .credits {
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+      .credit,
+      .source {
+        > a {
+          color: inherit;
+          &:hover { color: ftColor('blue'); }
+        }
+      }
+
+@include oGridRespondTo(S) {
+  .sources-and-credits {
+    padding: 0 15px;
+  }
+}
+
+@include oGridRespondTo(L) {
+  .sources-and-credits {
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+}
+
+@include oGridRespondTo(XL) {
+  .sources-and-credits {
+    max-width: 1220px;
+  }
+}

@@ -1,0 +1,67 @@
+/**
+ * This file is for basic styles for the page/wrapper/main elements, plus
+ * general whole-page things (such as link styles).
+ */
+
+body {
+  @include oColorsFor(page, background);
+
+  margin: 0;
+  border: 0;
+  font-family: ftFont('MetricWeb');
+
+  // prefer a lighter-looking anti-aliasing algorithm on OS X
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+  .page-wrapper {
+    min-width: 320px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+    main {
+      color: ftColor('grey-tint5');
+
+      // ensure the main area is at least 1 viewport high (to prevent a flash of
+      // the footer before the enhanced content has been injected)
+      min-height: 100vh;
+
+      // use border-box throughout - http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+      box-sizing: border-box;
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      // general link styles
+      a {
+        @include oColorsFor('link');
+        text-decoration: none;
+
+        &:hover { @include oColorsFor('link-hover'); }
+      }
+
+      p {
+        font-size: 22px;
+
+        font-family: ftFont('FinancierTextWeb');
+      }
+    }
+
+
+
+// hide the core content when we're in 'enhanced' mode
+// (i.e. when the browser cuts the mustard)
+.enhanced .core-content {
+  display: none;
+}
+
+// ...and the reverse: hide the 'enhanced' section when in 'core' mode
+// (i.e. for old browsers or people with no JS)
+// (NB. this section should be empty in core mode anyway, but it might have padding)
+.core .app {
+  display: none;
+}

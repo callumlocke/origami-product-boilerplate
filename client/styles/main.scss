@@ -1,13 +1,29 @@
+// Configuration for Origami components
+$o-assets-global-path: '//build.origami.ft.com/files/';
+$o-grid-is-silent: false;
+$o-grid-debug-mode: true;
+
+
+// Origami components
 @import 'o-fonts/main';
+@import 'o-footer/main';
+@import 'o-grid/main';
 @import 'o-colors/main';
 
+
+// Own misc. mixins etc.
+@import 'functions';
+@import 'mixins';
+@import 'vars';
+
+
+// Load fonts
 @import 'fonts';
 
 
-body {
-  @include oColorsFor(page, background);
-
-  margin: 0;
-  border: 0;
-  font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
-}
+// Our own styles
+@import 'base';
+@import 'site-header';
+@import 'intro';
+@import 'closing';
+// (...add more here!)

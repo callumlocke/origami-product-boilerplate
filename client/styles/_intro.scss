@@ -1,0 +1,77 @@
+/**
+ * This file is for stuff before the main story starts.
+ */
+
+.intro {
+  text-align: center;
+  padding: 0 10px;
+
+  // margin-bottom: 40px;
+
+  > h1 {
+    font: 400 34px ftFont('FinancierDisplayWeb');
+    color: ftColor('grey-tint5');
+  }
+
+  &:after {
+    content: '';
+    width: 80px;
+    border-top: 1px solid ftColor('grey-tint5');
+    display: block;
+    margin: 0 auto;
+  }
+}
+  .standfirst {
+    margin: 0 auto;
+    font: 200 22px/1.181818 ftFont('MetricWeb');
+    color: #74736c;
+  }
+
+  .publish-date {
+    text-transform: uppercase;
+    color: ftColor('grey-tint5');
+    font: 400 16px/19px ftFont('FinancierTextWeb');
+    margin: 30px 0;
+  }
+
+@include oGridRespondTo(S) {
+  .standfirst {
+    max-width: 400px;
+  }
+}
+
+
+@include oGridRespondTo(M) {
+  .intro {
+    padding-bottom: 40px;
+  }
+
+  .intro > h1 {
+    font-size: 50px;
+    margin: 1.2em auto 0.5em;
+  }
+
+  .standfirst {
+    font-size: 32px;
+    max-width: 550px;
+  }
+
+  .publish-date {
+    margin: 40px auto;
+  }
+}
+
+
+@include oGridRespondTo(L) {
+  .intro > h1 {
+    font-size: 60px;
+  }
+
+  .standfirst {
+    max-width: 700px;
+  }
+
+  .publish-date {
+    margin: 45px auto;
+  }
+}
