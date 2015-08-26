@@ -22,3 +22,6 @@ rules:
   new-cap: 0
   no-loop-func: 0
   key-spacing: 0
+
+globals:
+  spreadsheet: true

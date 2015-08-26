@@ -20,6 +20,7 @@
     "gulp-util": "^3.0.6",
     "nodemon": "^1.4.1",
     "origami-build-tools": "^3.3.4",
+    "ramjet": "^0.4.5",
     "run-sequence": "^1.1.2"
   },
   "engines": {
