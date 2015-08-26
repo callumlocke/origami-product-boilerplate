@@ -9,6 +9,7 @@ body {
   margin: 0;
   border: 0;
   font-family: ftFont('MetricWeb');
+  overflow-y: scroll;
 
   // prefer a lighter-looking anti-aliasing algorithm on OS X
   -moz-osx-font-smoothing: grayscale;

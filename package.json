@@ -1,5 +1,7 @@
 {
   "devDependencies": {
+    "ampersand-state": "^4.5.6",
+    "ampersand-view": "^8.0.1",
     "auto-plug": "^1.1.0",
     "babel": "^5.8.21",
     "babel-core": "^5.8.22",
@@ -28,7 +30,7 @@
   },
   "private": true,
   "scripts": {
-    "start": "nodemon --watch gulpfile.js --watch .scss-lint.yml --exec 'gulp clean && gulp serve'",
+    "start": "nodemon --watch gulpfile.babel.js --watch .scss-lint.yml --exec 'gulp clean && gulp serve'",
     "test": "eslint . && gulp build"
   }
 }

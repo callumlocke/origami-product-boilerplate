@@ -2,12 +2,8 @@
 
 import oHoverable from 'o-hoverable';
 import attachFastClick from 'fastclick';
-
-// make a quick look-up table for the stories
-const storiesData = {};
-spreadsheet.stories.forEach(story => {
-  storiesData[story.slug] = story;
-});
+import AppView from './views/app-view';
+import App from './models/app';
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -17,8 +13,14 @@ document.addEventListener('DOMContentLoaded', function () {
   // remove the 300ms tap delay on mobile browsers
   attachFastClick(document.body);
 
-  // get the <section class="app"> element
-  const app = document.querySelector('.app');
+  // render the app
+  const app = new App();
+  const appView = new AppView({app});
+
+  const main = document.querySelector('main');
+  main.replaceChild(appView.render().el, main.querySelector('.app'));
+
+  return;
 
   const pageWrapper = document.querySelector('.page-wrapper');
   const pageWrapper2 = document.querySelector('.page-wrapper-2');
