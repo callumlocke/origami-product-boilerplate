@@ -11,6 +11,7 @@
   > h1 {
     font: 400 34px ftFont('FinancierDisplayWeb');
     color: ftColor('grey-tint5');
+    // margin-bottom: .7em;
   }
 
   &:after {
@@ -18,19 +19,27 @@
     width: 80px;
     border-top: 1px solid ftColor('grey-tint2');
     display: block;
-    margin: 0 auto;
+    margin: 50px auto 0;
   }
 }
   .standfirst {
     margin: 0 auto;
-    font: 200 22px/1.181818 ftFont('MetricWeb');
+    font: 200 24px/1.181818 ftFont('MetricWeb');
     color: #74736c;
   }
-
-  .publish-date {
+  .byline {
     text-transform: uppercase;
+    font: 400 17px/19px ftFont('FinancierTextWeb');
+    margin-right: 17px;
+  }
+  .updated {
+    font: 400 16px/19px ftFont('MetricWeb');
+    // color: #B63150;
+    margin-right: 6px;
+  }
+  .publish-date {
     color: ftColor('grey-tint5');
-    font: 400 16px/19px ftFont('FinancierTextWeb');
+    font: 400 17px/19px ftFont('FinancierTextWeb');
     margin: 30px 0;
   }
 
@@ -48,11 +57,11 @@
 
   .intro > h1 {
     font-size: 50px;
-    margin: 1.2em auto 0.5em;
+    margin: 1.2em auto 0.2em;
   }
 
   .standfirst {
-    font-size: 32px;
+    font-size: 36px;
     max-width: 550px;
   }
 

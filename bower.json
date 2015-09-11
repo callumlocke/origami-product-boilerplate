@@ -4,11 +4,14 @@
   "dependencies": {
     "normalize.css": "~3.0.2",
     "o-colors": ">=2.5.0 <4",
-    "o-hoverable": "~1.1.0",
-    "o-fonts": "~1.6.4",
-    "o-header": "~3.0.6",
+    "o-fonts": "~1.8.2",
     "o-footer": "~3.1.1",
     "o-grid": "~3.2.5",
+    "o-header": "~3.0.6",
+    "o-hoverable": "~1.1.0",
     "plain-jsx": "*"
+  },
+  "resolutions": {
+    "o-fonts": "~1.8.2"
   }
 }

@@ -13,97 +13,18 @@ document.addEventListener('DOMContentLoaded', function () {
   // remove the 300ms tap delay on mobile browsers
   attachFastClick(document.body);
 
+  // set headline etc.
+  const main = document.querySelector('main');
+  main.querySelector('.headline').textContent = spreadsheet.options.headline;
+  main.querySelector('.standfirst').textContent = spreadsheet.options.standfirst;
+  main.querySelector('.byline').textContent = spreadsheet.options.byline;
+  main.querySelector('.publish-date').textContent = spreadsheet.options.publishDate;
+
   // render the app
   const app = new App();
   const appView = new AppView({app});
 
-  const main = document.querySelector('main');
   main.replaceChild(appView.render().el, main.querySelector('.app'));
 
-  return;
-
-  const pageWrapper = document.querySelector('.page-wrapper');
-  const pageWrapper2 = document.querySelector('.page-wrapper-2');
-
-
-  // make a div to work in, and inject the html from the spreadsheet
-  const all = document.createElement('div');
-  all.classList.add('all');
-  all.innerHTML = spreadsheet.content[0].content;
-
-
-  // find all the 'story' placeholders in it and replace them with real story views
-  const stories = all.querySelectorAll('h1');
-  for (let i = 0, l = stories.length; i < l; i++) {
-    const placeholder = stories[i];
-    const [tag, slug] = placeholder.textContent.split(': ');
-    if (tag !== 'STORY') continue;
-
-    const {image, copy} = storiesData[slug];
-
-    let figure;
-    const article = (
-      <article class="story">
-        {figure = (
-          <figure class="story__story-figure">
-            <img src={image}/>
-          </figure>
-        )}
-      </article>
-    );
-
-    figure.addEventListener('click', () => {
-      // console.log('click');
-      showOverlay(copy);
-    });
-
-    all.replaceChild(article, placeholder);
-  }
-
-  // append all the content
-  app.appendChild(all);
-
-
-  // also append an overlay
-  let overlayContent, closeButton;
-  const overlay = (
-    <div class="overlay overlay--hidden">
-      {overlayContent = <div class="overlay-content">CONTENT</div>}
-      {closeButton = <div class="overlay-content__close-button"/>}
-    </div>
-  );
-  closeButton.addEventListener('click', hideOverlay);
-  overlay.addEventListener('click', event => {
-    if (event.srcElement === overlay) hideOverlay();
-  });
-
-
-  app.appendChild(overlay);
-
-
-  // functions to show/hide the overlay
-  let scrollOffset;
-  function showOverlay(copy) {
-    // console.log('showOverlay', copy);
-    overlayContent.innerHTML = copy;
-    overlay.classList.remove('overlay--hidden');
-
-    scrollOffset = document.body.scrollTop;
-    pageWrapper2.style.top = '-' + scrollOffset + 'px';
-    // pageWrapper.scrollTop = scrollOffset;
-    pageWrapper.classList.add('showing-overlay');
-  }
-
-  function hideOverlay() {
-    overlay.classList.add('overlay--hidden');
-
-
-
-    pageWrapper.classList.remove('showing-overlay');
-
-    pageWrapper2.getBoundingClientRect(); // flush paint queue
-
-    document.body.scrollTop = scrollOffset;
-    pageWrapper2.style.top = '0';
-  }
+  // document.querySelectorAll('figure')[0].dispatchEvent(new Event('click'));
 });

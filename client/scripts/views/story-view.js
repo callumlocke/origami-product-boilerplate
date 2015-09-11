@@ -13,7 +13,7 @@ export default View.extend({
 
     const el = (
       <article class="story">
-        <img src={image} class="scan"/>
+        <img src={image} class="scan" width="300"/>
       </article>
     );
   }
