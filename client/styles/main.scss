@@ -1,7 +1,9 @@
+// THIS FILE IS A MESS.
+
 // Configuration for Origami components
 $o-assets-global-path: '//build.origami.ft.com/files/';
 $o-grid-is-silent: true;
-$o-grid-debug-mode: true;
+// $o-grid-debug-mode: true;
 
 
 // Origami components
@@ -28,6 +30,12 @@ $o-grid-debug-mode: true;
 @import 'closing';
 
 
+.no-transitions {
+  * {
+    transition-duration: 0 !important;
+  }
+}
+
 .overlay {
   position: fixed;
   height: 100vh;
@@ -43,17 +51,45 @@ $o-grid-debug-mode: true;
   justify-content: center;
   align-content: center;
   align-items: center;
+  cursor: pointer;
+  
 
+
+  &--hiding {
+    .overlay-close-button {
+      opacity: 0;
+    }
+  }
 }
+  .overlay-content-wrap {
+    max-width: 90vw;
+    position: relative;
+    // display: flex;
+    // flex-direction: column;
+  }
+
+    .overlay-close-button {
+      position: absolute;
+      top: -40px;
+      right: -3px;
+      color: white;
+      font: bold 30px/1 sans-serif;
+      z-index: 6;
+      opacity: 0.8;
+    }
+  
   .overlay-content {
     @include shadow-8dp;
-
-    background-color: rgba(255, 255, 255, 0.9);
+    
+    position: relative;
+    // background-color: rgba(255, 255, 255, 0.9);
+    background-color: white;
     max-height: 80vh;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     padding: 0 20px;
     position: relative;
+    cursor: auto;
 
     order: 0;
     flex: 0 0 auto;
@@ -69,6 +105,57 @@ $o-grid-debug-mode: true;
     //   box-shadow: inset 0 0 8px rgba(#fff, 1);
     // }
 
+    h1 {
+      font: normal 40px ftFont('FinancierDisplayWeb');
+      margin-top: 17px;
+      margin-bottom: 17px;
+    }
+  
+    // pre-headlines
+    h3 {
+      // margin-top: -5px;
+      margin-bottom: -5px;
+      font-size: 20px;
+    }
+  
+    // bylines
+    h6 {
+      font: normal 16px/1 ftFont('MetricWeb');
+      margin: 0;
+
+      strong {
+        font-weight: 600;
+      }
+
+      &:after {
+        content: '';
+        width: 60px;
+        display: block;
+        border-bottom: 1px solid #979797;
+        padding-bottom: 22px;
+      }
+    }
+
+    p > strong {
+      font-weight: 600;
+      font-family: ftFont('FinancierDisplayWeb');
+    }
+    
+    ul {
+      margin-top: -5px;
+    }
+
+    li > strong {
+      font: 600 20px ftFont('MetricWeb');
+    }
+
+    h2 {
+      font: italic normal 25px ftFont('FinancierTextWeb');
+
+      & + h2 {
+        margin-top: -10px;
+      }
+    }
   }
 
 
@@ -86,25 +173,58 @@ $o-grid-debug-mode: true;
 .page-wrapper.showing-overlay {
   max-height: 100vh;
   overflow: hidden;
+
+  & .content {
+    filter: blur(3px);
+    transition: filter, -webkit-filter 0.1s linear;
+  }
 }
 .page-wrapper-2 {
   position: relative;
 }
 
 
+.story {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 80px;
+}
 .story__story-figure {
   @include shadow-4dp;
 
-  margin: 0 auto;
+  // margin: 0 auto;
+  padding: 0;
+  margin: 0;
   cursor: pointer;
-  width: 300px;
+  // width: 300px;
+  max-width: 300px;
+  display: inline-block;
 
-  transition: box-shadow 0.25s linear;
+  transition: box-shadow 0.1s linear;
   background: white;
+  position: relative;
+
+  &:after {
+    $size: 80px;
+    content: '';
+    width: $size;
+    height: $size;
+    background: url(../images/click-me.png);
+    background-size: $size $size;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: 0 - ($size/2);
+    margin-left: 0 - ($size/2);
+    opacity: 0.92;
+  }
 
   &:hover {
     @include shadow-8dp;
     transition: box-shadow 0.1s linear;
+
+    &:after { opacity: 1 };
   }
 
   &:active {
@@ -117,7 +237,7 @@ $o-grid-debug-mode: true;
   > img {
     display: block;
     transition: opacity 0.5s linear;
-    width: 300px;
+    max-width: 300px;
   }
 }
 
@@ -131,10 +251,46 @@ $o-grid-debug-mode: true;
   padding: 0 10px;
 
   
-
+  h2 {
+    margin-top: 40px;
+    margin-bottom: -40px;
+    font-weight: 600;
+  }
   p {
     font-size: 19px;
     line-height: 1.25;
+
+    font-size: 21px;
+    font-family: FinancierTextWeb,serif;
+    line-height: 1.8rem;
+    margin-bottom: 2.5em;
+    margin-top: 2.5em;
+
+    &:first-of-type:first-letter {
+      font-size: 110px;
+      line-height: 80px;
+      font-family: ftFont('FinancierDisplayWeb');
+      float: left;
+      margin-right: 10px;
+      margin-top: -2px;
+      color: #43423E;
+    }
+
+
+    > img {
+      display: block;
+      margin: 0 auto;
+      max-width: 90vw;
+      // outline: 1px solid red;
+
+      // &:after {
+      //   content: 'asdf';
+      //   width: 100%;
+      //   text-align: center;
+      //   display: block;
+      //   color: gray;
+      // }
+    }
   }
 }
 
@@ -143,11 +299,42 @@ $o-grid-debug-mode: true;
 @include oGridRespondTo(M) {
   .content {
     p {
-      line-height: 1.375;
+      // font-size: 22px;
+      // line-height: 1.375;
     }
   }
+  
+  .overlay-content-wrap {
+    max-width: 740px;
+  }
+
+  .story__story-figure {
+    // width: 500px;
+  }
+
   .story__story-figure,
   .story__story-figure > img {
-    width: 500px;
+    max-width: 500px;
+    max-height: 500px;
   }
+}
+
+
+
+
+
+
+
+.archive-article-date {
+  &:before {
+    content: 'ORIGINALLY PUBLISHED';
+    display: block;
+    font: 600 14px ftFont('MetricWeb');
+    color: #B23150;
+  }
+  // text-transform: uppercase;
+  // font: 14px ftFont(MetricWeb);
+  font-size: 19px;
+  margin-top: 30px;
+  margin-bottom: 45px;
 }
