@@ -122,20 +122,20 @@ gulp.task('styles', () => {
 
 
 // lints SCSS files
-gulp.task('scsslint', () => {
-  return obt.verify.scssLint(gulp, {
-    sass: './client/styles/*.scss',
-  }).on('error', function (error) {
-    console.error('\n', error, '\n');
-    this.emit('end');
-  });
-});
+// gulp.task('scsslint', () => {
+//   return obt.verify.scssLint(gulp, {
+//     sass: './client/styles/*.scss',
+//   }).on('error', function (error) {
+//     console.error('\n', error, '\n');
+//     this.emit('end');
+//   });
+// });
 
 
 // sets up watch-and-rebuild for JS and CSS
 gulp.task('watch', done => {
   runSequence('clean', ['scripts', 'styles'], () => {
-    gulp.watch('./client/**/*.scss', ['styles', 'scsslint']);
+    gulp.watch('./client/**/*.scss', ['styles'/*, 'scsslint'*/]);
     gulp.watch('./client/**/*.{js,hbs}', ['scripts'/*, 'jshint'*/]);
     done();
   });
@@ -146,8 +146,26 @@ gulp.task('watch', done => {
 gulp.task('build', done => {
 
   runSequence(
-    ['clean', 'scsslint'/*, 'jshint'*/],
+    ['clean'/*, 'scsslint'*//*, 'jshint'*/],
     ['scripts', 'styles', 'copy'],
     ['html', 'images'],
   done);
+});
+
+
+
+gulp.task('deploy', function (done) {
+  var igdeploy = require('igdeploy');
+
+  igdeploy({
+    src: 'dist',
+    dest: '/var/opt/customer/apps/interactive.ftdata.co.uk/var/www/html/sites/2015/eu-referendum-1975-archive'
+  }, done);
+});
+
+
+gulp.task('open', function () {
+  var opn = require('opn');
+
+  opn('http://ig.ft.com/sites/2015/eu-referendum-1975-archive/');
 });
