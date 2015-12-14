@@ -1,39 +1,32 @@
-# Origami product boilerplate
+# Project Starter Kit
+
+For FT Interactive Projects.
+
+**[See the dev site for how to use this](http://ft-interactive.github.io/guides/project-starter-kit/)**.
 
 [![Build Status][travis-image]][travis-url] [![Dependency Status][devdeps-image]][devdeps-url]
-
-This repo is a starting point for new front-end apps that employ Origami components.
-
-The included build system is loosely based on Yeoman's original [webapp generator](https://github.com/yeoman/generator-webapp) and Google's [Web Starter Kit](https://github.com/google/web-starter-kit).
 
 
 ## What's included
 
 - `serve` and `build` tasks (similar to [Yeoman](http://yeoman.io/learning/index.html)'s)
-- [BrowserSync](http://www.browsersync.io/)
-- [Bower](http://bower.io/) (configured to use Origami)
-- [origami-build-tools](https://github.com/Financial-Times/origami-build-tools), which provides:
-    - [Webpack](https://webpack.github.io/)
-    - [node-sass](https://github.com/sass/node-sass)
-    - [ESLint](http://eslint.org/)
-    - [SCSS-Lint](https://github.com/causes/scss-lint)
-
-Watch-driven rebuilds (during `serve`) are fairly incremental (i.e. fast) and include sourcemaps.
-
+- [Browserify](http://browserify.org/)
+- [node-sass](https://github.com/sass/node-sass)
+- [ESLint](http://eslint.org/)
+- [SCSS-Lint](https://github.com/causes/scss-lint)
+- [Bower](http://bower.io/) (configured to try Origami's registry first)
 
 ## Documentation
 
-- [Getting started](docs/README.md)
+- [Guide on the dev site](http://ft-interactive.github.io/guides/project-starter-kit/)
 - [Recipes](docs/recipes/README.md)
 
 
 ## Primary tasks
 
-- `gulp serve` — runs a development server, opens it in your browser, and incrementally rebuilds and reloads your browser whenever source files change
+- `npm start` — runs a development server, opens it in your browser, and incrementally rebuilds and reloads your browser whenever source files change
 
-- `gulp build` — builds a compressed, deployable app in `dist`
-
-Bonus command: `npm run serve` is another way to run `gulp serve`, with the added benefit that it will automatically restart whenever you edit the gulpfile.
+- `npm run build` — builds a compressed, deployable app in `dist`
 
 
 ### Components
@@ -46,10 +39,12 @@ These Origami components are included as standard:
 
 Other components can be added easily – see [recipes](docs/recipes/README.md).
 
+## Licence
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
 
 <!-- badge URLs -->
-[travis-url]: http://travis-ci.org/callumlocke/origami-product-boilerplate
-[travis-image]: https://img.shields.io/travis/callumlocke/origami-product-boilerplate.svg?style=flat-square
+[travis-url]: http://travis-ci.org/ft-interactive/project-starter-kit
+[travis-image]: https://img.shields.io/travis/ft-interactive/project-starter-kit.svg?style=flat-square
 
-[devdeps-url]: https://david-dm.org/callumlocke/origami-product-boilerplate#info=devDependencies
-[devdeps-image]: https://img.shields.io/david/dev/callumlocke/origami-product-boilerplate.svg?style=flat-square
+[devdeps-url]: https://david-dm.org/ft-interactive/project-starter-kit#info=devDependencies
+[devdeps-image]: https://img.shields.io/david/dev/ft-interactive/project-starter-kit.svg?style=flat-square
