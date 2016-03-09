@@ -1,37 +1,51 @@
 {
   "devDependencies": {
+    "ansi-to-html": "^0.4.1",
     "auto-plug": "^1.2.0",
-    "babel-core": "^5.8.33",
+    "babel-core": "^6.1.21",
     "babel-eslint": "^4.1.3",
+    "babel-preset-es2015": "^6.1.18",
+    "babelify": "^7.2.0",
     "bower": "^1.6.5",
     "browser-sync": "^2.9.11",
+    "browserify": "^13.0.0",
     "debowerify": "^1.3.1",
     "del": "^2.0.2",
-    "eslint": "^1.7.3",
-    "fastclick": "^1.0.6",
+    "eslint": "^1.9.0",
+    "eslint-config-xo": "^0.8.0",
     "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-eslint": "^1.1.0",
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^2.4.0",
+    "gulp-minify-css": "^1.2.1",
     "gulp-minify-html": "^1.0.4",
-    "gulp-smoosher": "0.0.8",
-    "gulp-useref": "^2.0.0",
+    "gulp-rev": "^7.0.0",
+    "gulp-rev-replace": "^0.4.3",
+    "gulp-sass": "^2.1.0",
+    "gulp-smoosher": "0.0.9",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.4.2",
+    "gulp-useref": "^2.0.1",
     "gulp-util": "^3.0.7",
-    "nodemon": "^1.8.0",
-    "origami-build-tools": "^4.2.0",
-    "run-sequence": "^1.1.4"
+    "igdeploy": "^0.1.0",
+    "merge-stream": "^1.0.0",
+    "nodemon": "^1.8.1",
+    "run-sequence": "^1.1.4",
+    "subdir": "0.0.3",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.6.1"
   },
   "engines": {
-    "node": ">=4 < 5",
-    "npm": ">=3 < 4"
-  },
-  "eslintConfig": {
-    "extends": "./node_modules/origami-build-tools/.eslintrc"
+    "node": ">=5"
   },
   "private": true,
   "scripts": {
-    "build": "eslint . && gulp build",
+    "build": "gulp build",
     "postinstall": "bower install",
-    "start": "nodemon --watch gulpfile.babel.js --watch .scss-lint.yml --exec 'gulp clean && gulp serve'",
+    "start": "nodemon --watch gulpfile.babel.js --exec 'gulp clean && gulp serve'",
+    "deploy": "gulp deploy",
     "test": "npm run build"
   }
 }

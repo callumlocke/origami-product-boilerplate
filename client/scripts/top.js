@@ -1,7 +1,9 @@
+/* eslint-disable */
+
 // global addScript function
 function addScript(src, async, defer) {
   if (!async && !defer) {
-    document.write('<script src="' + src + '"><\/script>');
+    document.write('<script src="' + src + '">\x3c/script>');
   }
   else {
     var script = document.createElement('script');
@@ -33,4 +35,4 @@ if (cutsTheMustard) {
 // Note: you may also want to add this conditionally - a basic one for non-CTM
 // browsers (just to get basics like the HTML5 Shiv), and a special one (with
 // things like Promise) for CTM browsers.
-addScript('https://cdn.polyfill.io/v1/polyfill.min.js');
+addScript('https://h2.ft.com/polyfill/v2/polyfill.min.js');
