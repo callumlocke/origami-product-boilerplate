@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://origami-build.ft.com/v2/bundles/css?modules=o-comments@^3.1.0">
+<div class="o-grid-container">
+  <div class="o-grid-row">
+    <div id="comments" data-o-grid-colspan="12 S11 Scenter M9 L8 XL7"></div>
+  </div>
+</div>
+<script>
+;(function(){
+
+  if (!cutsTheMustard) return;
+
+  function load_comments_lib() {
+    document.removeEventListener("ig.Loaded", load_comments_lib);
+    addScript('https://origami-build.ft.com/v2/bundles/js?modules=o-comments@^3.1.0', true, true, show_comments);
+  }
+
+  function show_comments() {
+    var comments = document.getElementById('comments');
+    var id = document.documentElement.getAttribute('data-content-id');
+    if (!comments || !id) return;
+    new Origami['o-comments'](document.querySelector('#comments'), {
+  		title: document.title,
+  		url: document.location.href,
+  		articleId: id,
+  		livefyre: {
+  			initialNumVisible: 10,
+  			disableIE8Shim: true,
+  			disableThirdPartyAnalytics: true
+  		}
+  	});
+  }
+
+  document.addEventListener("ig.Loaded", load_comments_lib);
+
+}());
+</script>

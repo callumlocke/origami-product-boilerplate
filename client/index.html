@@ -1,22 +1,36 @@
 <!doctype html>
-<html lang="en-GB" class="core">
+<html lang="en-GB" class="core" data-content-id="">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
-  
-    <link rel="shortcut icon" href="//im.ft-static.com/m/icons/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="//im.ft-static.com/m/icons/apple-touch-icon.png">
+    <meta name="robots" content="index,follow">
+    <meta name="copyright" content="Financial Times">
+    <meta name="theme-color" content="#fff1e0" />
 
-    <title>FT.com</title>
-    <!-- <meta name="description" content="ENTER A DESCRIPTION HERE"> -->
-    
+    <link rel="shortcut icon" href="https://ig.ft.com/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://ig.ft.com/apple-touch-icon.png">
+
+    <title><!-- TODO: ENTER A TITLE HERE --></title>
+
+    <!--
+
+    TODO: FILL THESE IN AND REMOVE THIS COMMENT
+
+    <meta name="description" content="">
+    <link rel="canonical" href="https://ig.ft.com/ENTER URL HERE">
+    <link rel="image_src" href="https://ig.ft.com/URL FOR GENERIC SHARE/SOCIAL IMAGE">
+    -->
+
     <!-- smoosh -->
     <!-- build:js scripts/top.js -->
     <script src="scripts/top.js"></script>
     <!-- endbuild -->
     <!-- endsmoosh -->
+
+    <link rel="stylesheet" href="https://origami-build.ft.com/v2/bundles/css?modules=n-normalize@^1,o-fonts@^2">
+    <link rel="stylesheet" href="https://origami-build.ft.com/v2/bundles/css?modules=o-grid@^4,o-typography@^4">
 
     <!-- smoosh -->
     <!-- build:css styles/top.css -->
@@ -25,15 +39,73 @@
     <!-- endsmoosh -->
 
     <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="bower_components/normalize.css/normalize.css">
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+
+    <link href="https://plus.google.com/113457471429583444041/" rel="publisher" />
+    <meta property="fb:page_id" content="8860325749" />
+
+    <include src="includes/analytics-ga.html"></include>
   </head>
   <body>
 
-    <main>
-      <h1>Edit me</h1>
+    <!--
+      TODO: REPLACE THIS COMMENT WITH A TRACKING SNIPPET
+      http://ft-interactive.github.io/tracking-snippet-generator/
+    -->
+
+    <include src="includes/header.html"></include>
+
+    <main role="main">
+      <article class="article">
+
+        <div class="article-head o-grid-container">
+          <div class="o-grid-row">
+            <header data-o-grid-colspan="12 S11 Scenter M9 L8 XL7">
+              <!-- TODO: configure sharing in the include file -->
+              <include src="includes/share.html"></include>
+
+              <!-- REPLACE THIS with your article head html -->
+              <include src="includes/mock-article-head.html"></include>
+
+            </header>
+          </div>
+        </div>
+
+        <div class="article-body o-typography-body-wrapper">
+
+          <!-- REPLACE THIS with your article body html -->
+          <include src="includes/mock-article-content.html"></include>
+
+        </div>
+      </article>
+
+      <!--
+      TODO: comments
+
+        * Add UUID to <html data-content-id="UUID HERE">
+        * uncomment the include below
+        * dont run on localhost, you need an ft.com hostname
+
+      <include src="includes/comments.html"></include>
+      -->
+
     </main>
+
+    <include src="includes/footer.html"></include>
+
+    <script>
+    ;(function(){
+      if (!cutsTheMustard) return;
+
+      addScript('https://origami-build.ft.com/v2/bundles/js?modules=ig-article@^1.0.0-alpha.3', true, false, function(){
+        document.dispatchEvent(new CustomEvent('ig.Loaded'));
+      });
+
+    }());
+    </script>
+
+    <include src="includes/footer.html"></include>
 
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.bundle.js"></script>

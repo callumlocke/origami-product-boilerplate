@@ -1,55 +1,61 @@
-# Origami product boilerplate
+# Starter Kit
 
-[![Build Status][travis-image]][travis-url] [![Dependency Status][devdeps-image]][devdeps-url]
+> Boilerplate to kick-start a new FT Interactive project
 
-This repo is a starting point for new front-end apps that employ Origami components.
+[![Build Status][circle-image]][circle-url] [![Dependency Status][devdeps-image]][devdeps-url]
 
-The included build system is loosely based on Yeoman's original [webapp generator](https://github.com/yeoman/generator-webapp) and Google's [Web Starter Kit](https://github.com/google/web-starter-kit).
+## Usage
+
+**Download**
+
+Don't clone this repo. If you have [startfrom](https://github.com/callumlocke/startfrom) installed...
+
+```shell
+> startfrom ft-interactive/starter-kit
+```
+
+**Development**
+
+Run a dev server, build code and refresh when code changes:
+
+```
+$ npm start
+```
+
+**Publish**
+
+Build the code ready to be deployed: 
+
+```
+$ npm run build
+```
+
+Builds into a `dist` folder.
+
+**Full instructions**
+
+* [In-depth instructions](https://ft-interactive.github.io/guides/starter-kit/) on our Developer Guide
+* The are also [Recipes](docs/recipes/README.md) for how to code things up
 
 
-## What's included
+## Includes
 
-- `serve` and `build` tasks (similar to [Yeoman](http://yeoman.io/learning/index.html)'s)
-- [BrowserSync](http://www.browsersync.io/)
-- [Bower](http://bower.io/) (configured to use Origami)
-- [origami-build-tools](https://github.com/Financial-Times/origami-build-tools), which provides:
-    - [Webpack](https://webpack.github.io/)
-    - [node-sass](https://github.com/sass/node-sass)
-    - [ESLint](http://eslint.org/)
-    - [SCSS-Lint](https://github.com/causes/scss-lint)
-
-Watch-driven rebuilds (during `serve`) are fairly incremental (i.e. fast) and include sourcemaps.
+- Origami components, some via the [bower registry](http://registry.origami.ft.com/components) others via the [build service](https://build.origami.ft.com/).
+- [Browserify](http://browserify.org/)
+- [node-sass](https://github.com/sass/node-sass)
+- Linting: [ESLint](http://eslint.org/) | ~~[SCSS-Lint](https://github.com/causes/scss-lint)~~*
 
 
-## Documentation
-
-- [Getting started](docs/README.md)
-- [Recipes](docs/recipes/README.md)
+* SCSS-lint has been removed until we can find a non-Ruby version.
+You can still use it manually: `gem install scss-lint` then `scss-lint client/**/*.scss`
 
 
-## Primary tasks
-
-- `gulp serve` — runs a development server, opens it in your browser, and incrementally rebuilds and reloads your browser whenever source files change
-
-- `gulp build` — builds a compressed, deployable app in `dist`
-
-Bonus command: `npm run serve` is another way to run `gulp serve`, with the added benefit that it will automatically restart whenever you edit the gulpfile.
-
-
-### Components
-
-These Origami components are included as standard:
-
-- [o-colors](http://registry.origami.ft.com/components/o-colors)
-- [o-hoverable](http://registry.origami.ft.com/components/o-hoverable)
-- [o-fonts](http://registry.origami.ft.com/components/o-fonts)
-
-Other components can be added easily – see [recipes](docs/recipes/README.md).
-
+## Licence
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
 
 <!-- badge URLs -->
-[travis-url]: http://travis-ci.org/callumlocke/origami-product-boilerplate
-[travis-image]: https://img.shields.io/travis/callumlocke/origami-product-boilerplate.svg?style=flat-square
+[circle-url]: https://circleci.com/gh/ft-interactive/starter-kit
+[circle-image]: https://circleci.com/gh/ft-interactive/starter-kit/tree/master.svg?style=shield
 
-[devdeps-url]: https://david-dm.org/callumlocke/origami-product-boilerplate#info=devDependencies
-[devdeps-image]: https://img.shields.io/david/dev/callumlocke/origami-product-boilerplate.svg?style=flat-square
+[devdeps-url]: https://david-dm.org/ft-interactive/starter-kit#info=devDependencies
+[devdeps-image]: https://img.shields.io/david/dev/ft-interactive/starter-kit.svg?style=flat-square

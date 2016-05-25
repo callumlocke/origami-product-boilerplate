@@ -1,14 +1,33 @@
+/* eslint-disable */
+
 // global addScript function
-function addScript(src, async, defer) {
-  if (!async && !defer) {
-    document.write('<script src="' + src + '"><\/script>');
-  }
-  else {
+function addScript(src, async, defer, cb) {
+  if ((!async && !defer) || (typeof async === 'function' && !defer)) {
+    document.write('<script src="' + src + '">\x3c/script>');
+    if (typeof cb === 'function') {
+      cb();
+    }
+  } else {
     var script = document.createElement('script');
     script.src = src;
     script.async = !!async;
     if (defer) script.defer = !!defer;
     var oldScript = document.getElementsByTagName('script')[0];
+    if (!cb && typeof defer === 'function') {
+      cb = defer;
+    }
+
+    if (typeof cb === 'function') {
+      if (script.hasOwnProperty('onreadystatechange')) {
+        script.onreadystatechange = function() {
+          if (script.readyState === 'loaded') {
+            cb();
+          }
+        };
+      } else {
+        script.onload = cb;
+      }
+    }
     oldScript.parentNode.appendChild(script);
     return script;
   }
@@ -33,4 +52,4 @@ if (cutsTheMustard) {
 // Note: you may also want to add this conditionally - a basic one for non-CTM
 // browsers (just to get basics like the HTML5 Shiv), and a special one (with
 // things like Promise) for CTM browsers.
-addScript('https://cdn.polyfill.io/v1/polyfill.min.js');
+addScript('https://h2.ft.com/polyfill/v2/polyfill.min.js');
