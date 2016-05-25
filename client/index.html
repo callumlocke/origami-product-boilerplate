@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-GB" class="core">
+<html lang="en-GB" class="core" data-content-id="">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,8 +12,12 @@
     <link rel="shortcut icon" href="https://ig.ft.com/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="https://ig.ft.com/apple-touch-icon.png">
 
-    <title>***** ENTER A TITLE HERE *****</title>
-    <!-- ***** FILL THESE IN AND REMOVE THIS COMMENT
+    <title><!-- TODO: ENTER A TITLE HERE --></title>
+
+    <!--
+
+    TODO: FILL THESE IN AND REMOVE THIS COMMENT
+
     <meta name="description" content="">
     <link rel="canonical" href="https://ig.ft.com/ENTER URL HERE">
     <link rel="image_src" href="https://ig.ft.com/URL FOR GENERIC SHARE/SOCIAL IMAGE">
@@ -46,7 +50,7 @@
   <body>
 
     <!--
-      REPLACE THIS COMMENT WITH A TRACKING SNIPPET
+      TODO: REPLACE THIS COMMENT WITH A TRACKING SNIPPET
       http://ft-interactive.github.io/tracking-snippet-generator/
     -->
 
@@ -75,8 +79,31 @@
 
         </div>
       </article>
+
+      <!--
+      TODO: comments
+
+        * Add UUID to <html data-content-id="UUID HERE">
+        * uncomment the include below
+        * dont run on localhost, you need an ft.com hostname
+
+      <include src="includes/comments.html"></include>
+      -->
+
     </main>
 
+    <include src="includes/footer.html"></include>
+
+    <script>
+    ;(function(){
+      if (!cutsTheMustard) return;
+
+      addScript('https://origami-build.ft.com/v2/bundles/js?modules=ig-article@^1.0.0-alpha.3', true, false, function(){
+        document.dispatchEvent(new CustomEvent('ig.Loaded'));
+      });
+
+    }());
+    </script>
 
     <include src="includes/footer.html"></include>
 
